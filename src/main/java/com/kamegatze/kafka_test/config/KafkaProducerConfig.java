@@ -26,7 +26,7 @@ public class KafkaProducerConfig {
         configuration.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         configuration.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configuration.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        configuration.put(JsonSerializer.TYPE_MAPPINGS, String.format("test:%s", Test.class.toString().split(" ")[1]));
+        configuration.put(JsonSerializer.TYPE_MAPPINGS, String.format("test:%s", Test.class.getCanonicalName()));
         return new DefaultKafkaProducerFactory<>(configuration);
     }
 

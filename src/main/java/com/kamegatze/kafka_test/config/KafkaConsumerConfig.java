@@ -29,7 +29,7 @@ public class KafkaConsumerConfig {
         configuration.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         configuration.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        configuration.put(JsonDeserializer.TYPE_MAPPINGS, String.format("test:%s", Test.class.toString().split(" ")[1]));
+        configuration.put(JsonDeserializer.TYPE_MAPPINGS, String.format("test:%s", Test.class.getCanonicalName()));
         return new DefaultKafkaConsumerFactory<>(configuration);
     }
 
